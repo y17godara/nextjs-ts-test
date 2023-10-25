@@ -4,6 +4,9 @@ const nextConfig = {
   experimental: {
     serverActions: true,
   },
+  env: {
+    metadataBase: 'http://localhost:3000',
+  },
 };
 
 module.exports = nextConfig;
