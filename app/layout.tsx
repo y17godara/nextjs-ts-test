@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { fontSans } from '@/lib/font';
-import { cn } from "@/lib/cn"
+import { cn } from '@/lib/cn';
 import './globals.css';
 import { siteConfig } from '@/config/site';
 
@@ -74,11 +74,13 @@ export default function RootLayout({
     <html lang='en'>
       <head />
       <body
-      className={cn(
-        "min-h-screen bg-background font-sans antialiased",
-        fontSans.variable
-      )} 
-      >{children}</body>
+        className={cn(
+          'min-h-screen bg-background font-sans antialiased',
+          fontSans.variable
+        )}
+      >
+        {children}
+      </body>
     </html>
   );
 }
