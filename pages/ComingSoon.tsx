@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 function ComingSoon() {
-  return (
-    <div>ComingSoon</div>
-  )
+  return <div>ComingSoon</div>;
 }
 
 export default ComingSoon;
