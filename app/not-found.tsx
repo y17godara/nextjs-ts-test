@@ -3,8 +3,9 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Not Found",
-  description: "Uh oh! This page does not exists, maybe you clicked an old link or misspelled. Please try again…",
+  title: 'Not Found',
+  description:
+    'Uh oh! This page does not exists, maybe you clicked an old link or misspelled. Please try again…',
 };
 
 const Custom404 = (): JSX.Element => (

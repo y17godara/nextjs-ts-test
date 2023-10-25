@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { siteConfig }from '@/config/site';
+import { siteConfig } from '@/config/site';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -11,31 +11,32 @@ export const metadata: Metadata = {
     template: `%s : ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  category: 'technology',
   keywords: [
-    "Next.js",
-    "React",
-    "Tailwind CSS",
-    "Personal Blog",
-    "Personal Website",
-    "Blog",
-    "Website",
-    "yashgodara.me",
-    "y17godara",
+    'Next.js',
+    'React',
+    'Tailwind CSS',
+    'Personal Blog',
+    'Personal Website',
+    'Blog',
+    'Website',
+    'yashgodara.me',
+    'y17godara',
   ],
   authors: [
     {
-      name: "y17godara",
-      url: "http://localhost:3000",
+      name: 'y17godara',
+      url: 'http://localhost:3000',
     },
   ],
-  creator: "y17godara",
+  creator: 'y17godara',
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
+    { media: '(prefers-color-scheme: light)', color: 'white' },
+    { media: '(prefers-color-scheme: dark)', color: 'black' },
   ],
   openGraph: {
-    type: "website",
-    locale: "en_IN",
+    type: 'website',
+    locale: 'en_IN',
     url: siteConfig.url,
     title: siteConfig.name,
     description: siteConfig.description,
@@ -50,16 +51,16 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    card: "summary_large_image",
+    card: 'summary_large_image',
     title: siteConfig.name,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
-    creator: "@y17godara",
+    creator: '@y17godara',
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
+    icon: '/favicon.ico',
+    shortcut: '/favicon-16x16.png',
+    apple: '/apple-touch-icon.png',
   },
   metadataBase: new URL('http://localhost:3000'),
   // manifest: `${siteConfig.url}/site.webmanifest`,
