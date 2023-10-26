@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
 import { fontSans } from '@/lib/font';
-import { cn } from '@/lib/cn';
+import { cn } from '@/lib/utils/cn';
 import './globals.css';
 import { siteConfig } from '@/config/site';
+import { ThemeProvider } from '@/components/theme-provider';
+import { Header } from '@/components/header';
+import { Footer } from '@/components/footer';
 
 export const metadata: Metadata = {
   title: {
@@ -71,7 +74,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en'>
+    <html lang='en' suppressHydrationWarning={true}>
       <head />
       <body
         className={cn(
@@ -79,7 +82,18 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        {children}
+        <ThemeProvider
+          attribute='class'
+          defaultTheme='system'
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className='relative flex min-h-screen flex-col'>
+            <Header />
+            <div className='flex-1'>{children}</div>
+            <Footer />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
