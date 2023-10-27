@@ -4,6 +4,7 @@ import bgImage from '@/public/static/cs-bg-1.jpg';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Icons } from '@/components/icons';
+import EmailSubscribeForm from '@/components/email-subscribe-form';
 
 export const metadata: Metadata = {
   title: 'Coming Soon',
@@ -39,6 +40,9 @@ function ComingSoon() {
                 <p>Welcome to my Personal Portfolio Website</p>
                 <h3>Subscribe here to get notified!</h3>
 
+                {/* Email Subscribe Form */}
+                <EmailSubscribeForm />
+
                 {/* Socials */}
                 <div>
                   <h3>Follow Me:</h3>
@@ -49,7 +53,31 @@ function ComingSoon() {
                       rel='noopener noreferrer'
                       className='text-3xl text-white hover:text-blue-500'
                     >
-                      <Icons.linkedin />
+                      <Icons.linkedIn />
+                    </Link>
+                    <Link
+                      href='#'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='text-3xl text-white hover:text-blue-500'
+                    >
+                      <Icons.instagram />
+                    </Link>
+                    <Link
+                      href='#'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='text-3xl text-white hover:text-blue-500'
+                    >
+                      <Icons.twitter/>
+                    </Link>
+                    <Link
+                      href='#'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='text-3xl text-white hover:text-blue-500'
+                    >
+                      <Icons.youTube />
                     </Link>
                   </div>
                 </div>
@@ -63,22 +91,16 @@ function ComingSoon() {
                   <Image
                     src='/icons/favicon.ico'
                     alt='Logo'
-                    height={100}
-                    width={100}
+                    height={50}
+                    width={50}
                     quality={100}
                     priority={true}
-                    style={{
-                      maxWidth: '100%',
-                      height: 'auto',
-                    }}
                   />
                 </div>
-                <div className='text-2xl font-bold'>
+                <p className='mt-4 text-lg font-bold lg:mt-0'>
                   We are working on something awesome
-                </div>
-                <div className='mt-2 text-lg'>
-                  Please check back in sometime
-                </div>
+                </p>
+                <p className='mt-2 text-sm'>Please check back in sometime</p>
               </div>
             </div>
           </div>
