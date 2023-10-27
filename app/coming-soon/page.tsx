@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import bgImage from '/public/static/cs-bg-2.jpg';
+import bgImage from '/public/static/cs-bg-1.jpg';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 function ComingSoon() {
   return (
-    <section className='relative min-h-screen w-full'>
+    <section className='relative h-screen w-full'>
       {/* Image: for background image */}
       <Image
         src={bgImage}
@@ -24,16 +24,13 @@ function ComingSoon() {
 
       {/* div: to give 50% black shade on bg image */}
       <div className='absolute left-0 top-0 flex h-full w-full bg-black opacity-50'></div>
-  
-        {/* Content */}
-      <div className='w-full sm:w-11/12 md:w-9/12 min-h-screen p-4 flex justify-center items-center text-center mx-auto rounded-lg bg-black/40 backdrop-blur-2xl'>
-        <div className='relative text-white'>Coming Soon</div>
-      </div>
 
-      {/* footer */}
-      <footer className='absolute bg-black bg-black/40 backdrop-blur-2xl bottom-0 left-0 right-0  rounded-lg z-10 flex h-6 items-center justify-center text-center text-white'>
-        <div className='relative text-white'>Footer</div>
-      </footer>
+      {/* Content */}
+      <div className='w-full p-2 md:w-11/12 lg:9/12 mx-auto h-full'>
+        <div className='mx-auto flex h-full w-full items-center justify-center rounded-lg bg-black/40 p-4 text-center backdrop-blur-2xl sm:w-11/12 md:w-9/12'>
+          <div className='relative text-white'>Coming Soon</div>
+        </div>
+      </div>
     </section>
   );
 }
