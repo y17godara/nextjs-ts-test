@@ -19,19 +19,19 @@ function ComingSoon() {
         quality={100}
         priority={true}
         placeholder='blur'
-        className='z-[-1] border-b bg-background/95 opacity-95 backdrop-blur supports-[backdrop-filter]:bg-background/95'
+        className='z-[-1] bg-background/95 opacity-95 backdrop-blur supports-[backdrop-filter]:bg-background/95'
       />
 
       {/* div: to give 50% black shade on bg image */}
       <div className='absolute left-0 top-0 flex h-full w-full bg-black opacity-50'></div>
   
         {/* Content */}
-      <div className='w-9/12 p-4 flex justify-center items-center text-center mx-auto rounded-lg bg-black/40 backdrop-blur-2xl'>
+      <div className='w-full sm:w-11/12 md:w-9/12 min-h-screen p-4 flex justify-center items-center text-center mx-auto rounded-lg bg-black/40 backdrop-blur-2xl'>
         <div className='relative text-white'>Coming Soon</div>
       </div>
 
       {/* footer */}
-      <footer className='absolute bottom-0 left-0 right-0 z-10 flex h-14 items-center justify-center text-center text-white'>
+      <footer className='absolute bg-black bg-black/40 backdrop-blur-2xl bottom-0 left-0 right-0  rounded-lg z-10 flex h-6 items-center justify-center text-center text-white'>
         <div className='relative text-white'>Footer</div>
       </footer>
     </section>
