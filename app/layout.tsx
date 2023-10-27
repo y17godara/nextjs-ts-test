@@ -32,10 +32,6 @@ export const metadata: Metadata = {
     },
   ],
   creator: 'y17godara',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' },
-  ],
   openGraph: {
     type: 'website',
     locale: 'en_IN',
@@ -66,6 +62,13 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL('http://localhost:3000'),
   // manifest: `${siteConfig.url}/site.webmanifest`,
+};
+
+export const viewports: Metadata = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: 'white' },
+    { media: '(prefers-color-scheme: dark)', color: 'black' },
+  ],
 };
 
 export default function RootLayout({
