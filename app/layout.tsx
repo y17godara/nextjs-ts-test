@@ -4,8 +4,8 @@ import { cn } from '@/lib/utils/cn';
 import './globals.css';
 import { siteConfig } from '@/config/site';
 import { ThemeProvider } from '@/components/theme-provider';
-import { Header } from '@/components/header';
-import { Footer } from '@/components/footer';
+// import { Header } from '@/components/header';
+// import { Footer } from '@/components/footer';
 
 export const metadata: Metadata = {
   title: {
@@ -94,7 +94,7 @@ export default function RootLayout({
           <div className='relative flex min-h-screen flex-col'>
             {/* <Header /> */}
             <main className='flex-1'>{children}</main>
-            <Footer />
+            {/* <Footer /> */}
           </div>
         </ThemeProvider>
       </body>
