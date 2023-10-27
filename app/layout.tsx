@@ -92,8 +92,8 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className='relative flex min-h-screen flex-col'>
-            <Header />
-            <div className='flex-1'>{children}</div>
+            {/* <Header /> */}
+            <main className='flex-1'>{children}</main>
             <Footer />
           </div>
         </ThemeProvider>
