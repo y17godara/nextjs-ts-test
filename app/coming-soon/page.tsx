@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import bgImage from '/public/static/cs-bg-1.jpg';
+import bgImage from '@/public/static/cs-bg-1.jpg';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Icons } from '@/components/icons';
@@ -16,12 +16,13 @@ function ComingSoon() {
       <Image
         src={bgImage}
         alt='Coming Soon Background Image'
-        layout='fill'
         // objectFit='cover'
         quality={100}
         priority={true}
         placeholder='blur'
         className='z-[-1] bg-background/95 opacity-95 backdrop-blur supports-[backdrop-filter]:bg-background/95'
+        fill
+        sizes='100vw'
       />
 
       {/* div: to give 50% black shade on bg image */}
@@ -59,13 +60,17 @@ function ComingSoon() {
             <div className='relative p-10 text-center text-white lg:text-start'>
               <div className='flex h-full w-full flex-col items-center justify-center p-4 text-center'>
                 <div>
-                  <Image 
+                  <Image
                     src='/icons/favicon.ico'
                     alt='Logo'
                     height={100}
                     width={100}
                     quality={100}
                     priority={true}
+                    style={{
+                      maxWidth: '100%',
+                      height: 'auto',
+                    }}
                   />
                 </div>
                 <div className='text-2xl font-bold'>
