@@ -1,4 +1,5 @@
 'use client';
+
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
@@ -7,13 +8,13 @@ import { Button } from '@/components/ui/button';
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { toast } from './ui/use-toast';
+import { ToastAction } from '@/components/ui/toast';
 
 interface formSchema {
   email: string;
@@ -31,27 +32,49 @@ function EmailSubscribeForm() {
     },
   });
 
+  // const { toast } = useToast();
+
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+    // console.log(values);
+    toast({
+      variant: 'destructive',
+      title: 'Uh oh! Something went wrong.',
+      description: 'There was a problem with your request.',
+      action: (
+        <ToastAction
+          onClick={() => {
+            console.log('Try Again');
+          }}
+          altText='Try again'
+        >
+          Try again
+        </ToastAction>
+      ),
+    });
   }
   return (
     <>
       {/* fullname and email form with submit button usign shadcn ui */}
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className='my-4 flex flex-row space-x-2 items-center  '>
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className='my-4 flex flex-row items-center space-x-2  '
+        >
           <FormField
             control={form.control}
             name='email'
             render={({ field }) => (
               <FormItem>
-                <FormControl>
-                  <Input placeholder='email' {...field} />
-                </FormControl>
+                <div className='flex flex-row items-center justify-center gap-4 md:gap-8'>
+                  <FormControl>
+                    <Input placeholder='joe@mail.com' {...field} />
+                  </FormControl>
+                  <Button type='submit'>Submit</Button>
+                </div>
                 <FormMessage />
               </FormItem>
             )}
           />
-          <Button type='submit'>Submit</Button>
         </form>
       </Form>
     </>

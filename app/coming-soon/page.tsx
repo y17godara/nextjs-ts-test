@@ -17,7 +17,6 @@ function ComingSoon() {
       <Image
         src={bgImage}
         alt='Coming Soon Background Image'
-        // objectFit='cover'
         quality={100}
         priority={true}
         placeholder='blur'
@@ -32,20 +31,24 @@ function ComingSoon() {
       {/* Content */}
       <div className='mx-auto h-full w-full p-2 sm:px-8 md:px-16 md:py-10 lg:w-11/12 lg:py-32'>
         <div className='mx-auto flex h-full w-full items-center justify-center rounded-lg bg-black/40 p-4 text-center backdrop-blur-2xl sm:px-8 lg:w-11/12'>
-          <div className='grid items-center lg:grid-cols-2'>
+          <div className='grid items-center gap-y-10 lg:grid-cols-2'>
             {/* top */}
-            <div className='class="p-10 lg:text-start" relative text-center text-white'>
+            <div className='lg:text-start" relative p-4 text-center text-white'>
               <div className='flex h-full w-full flex-col items-center justify-center p-4 text-center'>
-                <h2>Launching Soon...</h2>
-                <p>Welcome to my Personal Portfolio Website</p>
-                <h3>Subscribe here to get notified!</h3>
+                <h2 className='text-4xl'>Launching Soon...</h2>
+                <p className='text-base font-medium text-gray-300'>
+                  Welcome to my Personal Portfolio Website
+                </p>
+                <h3 className='my-4 text-base font-medium text-gray-300'>
+                  Subscribe here to get notified!
+                </h3>
 
                 {/* Email Subscribe Form */}
                 <EmailSubscribeForm />
 
                 {/* Socials */}
                 <div>
-                  <h3>Follow Me:</h3>
+                  <h3 className='text-lg'>Follow Me:</h3>
                   <div className='flex items-center justify-center space-x-2'>
                     <Link
                       href='#'
@@ -69,7 +72,7 @@ function ComingSoon() {
                       rel='noopener noreferrer'
                       className='text-3xl text-white hover:text-blue-500'
                     >
-                      <Icons.twitter/>
+                      <Icons.twitter />
                     </Link>
                     <Link
                       href='#'
@@ -85,7 +88,7 @@ function ComingSoon() {
             </div>
 
             {/* bottom */}
-            <div className='relative p-10 text-center text-white lg:text-start'>
+            <div className='relative p-4 text-center text-white lg:text-start'>
               <div className='flex h-full w-full flex-col items-center justify-center p-4 text-center'>
                 <div>
                   <Image

@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
-import { fontSans } from '@/lib/font';
+import { poppins } from '@/lib/font';
 import { cn } from '@/lib/utils/cn';
 import './globals.css';
 import { siteConfig } from '@/config/site';
+import { Toaster } from '@/components/ui/toaster';
 import { ThemeProvider } from '@/components/theme-provider';
 // import { Header } from '@/components/header';
 // import { Footer } from '@/components/footer';
@@ -77,12 +78,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en' suppressHydrationWarning={true}>
+    <html lang='en' suppressHydrationWarning>
       <head />
       <body
         className={cn(
           'min-h-screen bg-background font-sans antialiased',
-          fontSans.variable
+          poppins.variable
         )}
       >
         <ThemeProvider
@@ -97,6 +98,7 @@ export default function RootLayout({
             {/* <Footer /> */}
           </div>
         </ThemeProvider>
+        <Toaster />
       </body>
     </html>
   );
