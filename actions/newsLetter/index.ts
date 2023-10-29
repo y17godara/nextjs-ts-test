@@ -26,11 +26,11 @@ export async function handleNewsletterSubscription(
     });
 
     // Send a confirmation email to the user.
-    // await sendMail(
-    //   'Newsletter subscription confirmation',
-    //   email,
-    //   'You have successfully subscribed to our newsletter!'
-    // );
+    await sendMail(
+      'Newsletter subscription confirmation',
+      email,
+      'You have successfully subscribed to our newsletter!'
+    );
     console.log('Email Sent');
 
     const status = 200;
