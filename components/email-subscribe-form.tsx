@@ -32,24 +32,17 @@ function EmailSubscribeForm() {
     },
   });
 
-  // const { toast } = useToast();
+  const clearUserInput = () => {
+    form.reset();
+  };
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     // console.log(values);
     toast({
-      variant: 'destructive',
-      title: 'Uh oh! Something went wrong.',
-      description: 'There was a problem with your request.',
-      action: (
-        <ToastAction
-          onClick={() => {
-            console.log('Try Again');
-          }}
-          altText='Try again'
-        >
-          Try again
-        </ToastAction>
-      ),
+      variant: 'default',
+      title: 'Successfully subscribed!',
+      description: 'You will be notified when we launch.',
+      action: <></>,
     });
   }
   return (
@@ -65,7 +58,7 @@ function EmailSubscribeForm() {
             name='email'
             render={({ field }) => (
               <FormItem>
-                <div className='flex flex-row items-center justify-center gap-4 md:gap-8'>
+                <div className='flex flex-col items-center justify-center gap-4 md:gap-6'>
                   <FormControl>
                     <Input placeholder='joe@mail.com' {...field} />
                   </FormControl>

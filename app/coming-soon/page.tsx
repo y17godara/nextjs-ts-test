@@ -59,7 +59,7 @@ function ComingSoon() {
 
             {/* bottom */}
             <div className='relative p-4 text-center text-white lg:text-start'>
-              <div className='flex h-full w-full flex-col items-center justify-center p-4 text-center gap-2'>
+              <div className='flex h-full w-full flex-col items-center justify-center gap-2 p-4 text-center'>
                 <div>
                   <Image
                     src='/icons/favicon.ico'
@@ -99,7 +99,11 @@ function ComingSoon() {
                     {[
                       { name: 'LinkedIn', icon: <Icons.linkedIn />, url: '#' },
                       { name: 'X', icon: <Icons.twitter />, url: '#' },
-                      { name: 'Instagram', icon: <Icons.instagram />, url: '#' },
+                      {
+                        name: 'Instagram',
+                        icon: <Icons.instagram />,
+                        url: '#',
+                      },
                       { name: 'Facebook', icon: <Icons.facebook />, url: '#' },
                     ].map((item, index) => (
                       <Link
