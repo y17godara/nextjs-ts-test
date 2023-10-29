@@ -40,7 +40,10 @@ function EmailSubscribeForm() {
     console.log(values);
     try {
       const response = await handleNewsletterSubscription(values.email);
-      if((response.status as number) >= 200 && (response.status as number) < 300) {
+      if (
+        (response.status as number) >= 200 &&
+        (response.status as number) < 300
+      ) {
         toast({
           variant: 'default',
           title: 'Success!',
@@ -50,7 +53,8 @@ function EmailSubscribeForm() {
         toast({
           variant: 'destructive',
           title: 'Uh oh! Something went wrong',
-          description: 'Code: 404, Please try again or contact support for help.',
+          description:
+            'Code: 404, Please try again or contact support for help.',
         });
       }
     } catch (error) {
