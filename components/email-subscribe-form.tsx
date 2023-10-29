@@ -14,7 +14,7 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { toast } from './ui/use-toast';
-import { ToastAction } from '@/components/ui/toast';
+// import { ToastAction } from '@/components/ui/toast';
 
 interface formSchema {
   email: string;
@@ -51,7 +51,7 @@ function EmailSubscribeForm() {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className='my-4 flex flex-row items-center space-x-2  '
+          className='my-2 flex flex-row items-center space-x-2  '
         >
           <FormField
             control={form.control}
@@ -60,7 +60,11 @@ function EmailSubscribeForm() {
               <FormItem>
                 <div className='flex flex-col items-center justify-center gap-4 md:gap-6'>
                   <FormControl>
-                    <Input placeholder='joe@mail.com' {...field} />
+                    <Input
+                      className='flex border-2 border-gray-400 text-center focus:border-gray-200'
+                      placeholder='joe@mail.com'
+                      {...field}
+                    />
                   </FormControl>
                   <Button type='submit'>Submit</Button>
                 </div>

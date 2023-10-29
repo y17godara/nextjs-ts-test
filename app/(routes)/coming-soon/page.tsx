@@ -73,7 +73,7 @@ function ComingSoon() {
                 <EmailSubscribeForm />
 
                 {/* Socials */}
-                <div>
+                <div className='mt-4'>
                   <h3 className='text-md'>Follow Me</h3>
                   <div className='flex items-center justify-center space-x-2'>
                     {[
@@ -92,7 +92,7 @@ function ComingSoon() {
                         target='_blank'
                         rel='noopener noreferrer'
                         title={item.name}
-                        className='text-3xl text-white hover:text-blue-500'
+                        className='hover:text-grey-200 text-3xl text-gray-300'
                       >
                         {item.icon}
                       </Link>
