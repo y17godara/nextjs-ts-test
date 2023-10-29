@@ -10,9 +10,32 @@ export const metadata: Metadata = {
   title: 'Coming Soon',
 };
 
+const socialIcons = [
+  {
+    name: 'LinkedIn',
+    icon: <Icons.linkedIn />,
+    link: '#',
+  },
+  {
+    name: 'Twitter',
+    icon: <Icons.twitter />,
+    link: '#',
+  },
+  {
+    name: 'Instagram',
+    icon: <Icons.instagram />,
+    link: '#',
+  },
+  {
+    name: 'Facebook',
+    icon: <Icons.facebook />,
+    link: '#',
+  },
+];
+
 function ComingSoon() {
   return (
-    <section className='relative h-screen w-full'>
+    <section className='relative min-h-screen w-full'>
       {/* Image: for background image */}
       <Image
         src={bgImage}
@@ -33,6 +56,29 @@ function ComingSoon() {
         <div className='mx-auto flex h-full w-full items-center justify-center rounded-lg bg-black/40 p-4 text-center backdrop-blur-2xl sm:px-8 lg:w-11/12'>
           <div className='grid items-center gap-y-10 lg:grid-cols-2'>
             {/* top */}
+
+            {/* bottom */}
+            <div className='relative p-4 text-center text-white lg:text-start'>
+              <div className='flex h-full w-full flex-col items-center justify-center p-4 text-center gap-2'>
+                <div>
+                  <Image
+                    src='/icons/favicon.ico'
+                    alt='Logo'
+                    height={50}
+                    width={50}
+                    quality={100}
+                    priority={true}
+                  />
+                </div>
+                <h2 className='text-4xl font-bold lg:mt-0'>
+                  We are working on something awesome
+                </h2>
+                <p className='text-base font-medium text-gray-300'>
+                  Please check back in sometime
+                </p>
+              </div>
+            </div>
+
             <div className='lg:text-start" relative p-4 text-center text-white'>
               <div className='flex h-full w-full flex-col items-center justify-center p-4 text-center'>
                 <h2 className='text-4xl'>Launching Soon...</h2>
@@ -48,62 +94,27 @@ function ComingSoon() {
 
                 {/* Socials */}
                 <div>
-                  <h3 className='text-lg'>Follow Me:</h3>
+                  <h3 className='text-md'>Follow Me</h3>
                   <div className='flex items-center justify-center space-x-2'>
-                    <Link
-                      href='#'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                      className='text-3xl text-white hover:text-blue-500'
-                    >
-                      <Icons.linkedIn />
-                    </Link>
-                    <Link
-                      href='#'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                      className='text-3xl text-white hover:text-blue-500'
-                    >
-                      <Icons.instagram />
-                    </Link>
-                    <Link
-                      href='#'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                      className='text-3xl text-white hover:text-blue-500'
-                    >
-                      <Icons.twitter />
-                    </Link>
-                    <Link
-                      href='#'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                      className='text-3xl text-white hover:text-blue-500'
-                    >
-                      <Icons.youTube />
-                    </Link>
+                    {[
+                      { name: 'LinkedIn', icon: <Icons.linkedIn />, url: '#' },
+                      { name: 'X', icon: <Icons.twitter />, url: '#' },
+                      { name: 'Instagram', icon: <Icons.instagram />, url: '#' },
+                      { name: 'Facebook', icon: <Icons.facebook />, url: '#' },
+                    ].map((item, index) => (
+                      <Link
+                        key={index}
+                        href={item.url}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        title={item.name}
+                        className='text-3xl text-white hover:text-blue-500'
+                      >
+                        {item.icon}
+                      </Link>
+                    ))}
                   </div>
                 </div>
-              </div>
-            </div>
-
-            {/* bottom */}
-            <div className='relative p-4 text-center text-white lg:text-start'>
-              <div className='flex h-full w-full flex-col items-center justify-center p-4 text-center'>
-                <div>
-                  <Image
-                    src='/icons/favicon.ico'
-                    alt='Logo'
-                    height={50}
-                    width={50}
-                    quality={100}
-                    priority={true}
-                  />
-                </div>
-                <p className='mt-4 text-lg font-bold lg:mt-0'>
-                  We are working on something awesome
-                </p>
-                <p className='mt-2 text-sm'>Please check back in sometime</p>
               </div>
             </div>
           </div>
