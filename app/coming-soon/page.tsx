@@ -1,5 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
+import { nunito } from '@/lib/font';
+import { cn } from '@/lib/utils';
 import bgImage from '@/public/static/cs-bg-1.jpg';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -10,33 +12,10 @@ export const metadata: Metadata = {
   title: 'Coming Soon',
 };
 
-const socialIcons = [
-  {
-    name: 'LinkedIn',
-    icon: <Icons.linkedIn />,
-    link: '#',
-  },
-  {
-    name: 'Twitter',
-    icon: <Icons.twitter />,
-    link: '#',
-  },
-  {
-    name: 'Instagram',
-    icon: <Icons.instagram />,
-    link: '#',
-  },
-  {
-    name: 'Facebook',
-    icon: <Icons.facebook />,
-    link: '#',
-  },
-];
-
 function ComingSoon() {
   return (
-    <section className='relative min-h-screen w-full'>
-      {/* Image: for background image */}
+    <section className={cn('relative min-h-screen w-full', nunito.variable)}>
+      Image: for background image
       <Image
         src={bgImage}
         alt='Coming Soon Background Image'
