@@ -15,7 +15,6 @@ export const metadata: Metadata = {
 function ComingSoon() {
   return (
     <section className={cn('relative min-h-screen w-full', nunito.variable)}>
-      Image: for background image
       <Image
         src={bgImage}
         alt='Coming Soon Background Image'
