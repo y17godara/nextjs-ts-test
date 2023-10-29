@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import type { Metadata } from 'next';
 import { nunito } from '@/lib/font';
 import { cn } from '@/lib/utils';
@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Icons } from '@/components/icons';
 import EmailSubscribeForm from '@/components/email-subscribe-form';
+import Loading from './loading';
 
 export const metadata: Metadata = {
   title: 'Coming Soon',
@@ -14,7 +15,8 @@ export const metadata: Metadata = {
 
 function ComingSoon() {
   return (
-    <section className={cn('relative min-h-screen w-full', nunito.variable)}>
+    <Suspense fallback={<Loading />}>
+      <section className={cn('relative min-h-screen w-full', nunito.variable)}>
       <Image
         src={bgImage}
         alt='Coming Soon Background Image'
@@ -105,6 +107,7 @@ function ComingSoon() {
         </div>
       </div>
     </section>
+    </Suspense>
   );
 }
 
