@@ -52,9 +52,9 @@ function ComingSoon() {
       <div className='absolute left-0 top-0 flex h-full w-full bg-black opacity-50'></div>
 
       {/* Content */}
-      <div className='mx-auto h-full w-full p-2 sm:px-8 md:px-16 md:py-10 lg:w-11/12 lg:py-32'>
-        <div className='mx-auto flex h-full w-full items-center justify-center rounded-lg bg-black/40 p-4 text-center backdrop-blur-2xl sm:px-8 lg:w-11/12'>
-          <div className='grid items-center gap-y-10 lg:grid-cols-2'>
+      <div className='relative flex min-h-screen items-center justify-center'>
+        <div className='relative px-2'>
+          <div className='grid max-w-[60rem] items-center rounded-lg bg-black/40 p-2 backdrop-blur-2xl lg:min-h-[40rem] lg:grid-cols-2'>
             {/* top */}
 
             {/* bottom */}
@@ -73,7 +73,7 @@ function ComingSoon() {
                 <h2 className='text-4xl font-bold lg:mt-0'>
                   We are working on something awesome
                 </h2>
-                <p className='text-base font-medium text-gray-300'>
+                <p className='text-lg font-medium text-gray-300'>
                   Please check back in sometime
                 </p>
               </div>
@@ -81,8 +81,10 @@ function ComingSoon() {
 
             <div className='lg:text-start" relative p-4 text-center text-white'>
               <div className='flex h-full w-full flex-col items-center justify-center p-4 text-center'>
-                <h2 className='text-4xl'>Launching Soon...</h2>
-                <p className='text-base font-medium text-gray-300'>
+                <h2 className='text-4xl font-bold lg:mt-0'>
+                  Launching Soon...
+                </h2>
+                <p className='text-lg font-medium text-gray-300'>
                   Welcome to my Personal Portfolio Website
                 </p>
                 <h3 className='my-4 text-base font-medium text-gray-300'>
