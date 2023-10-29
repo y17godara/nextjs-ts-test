@@ -3,6 +3,7 @@ import {
   Inter as FontSans,
   Roboto,
   Poppins,
+  Nunito,
 } from 'next/font/google';
 
 export const fontSans = FontSans({
@@ -23,6 +24,13 @@ export const robot = Roboto({
 });
 
 export const poppins = Poppins({
+  weight: ['500'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-sans',
+});
+
+export const nunito = Nunito({
   weight: ['500'],
   subsets: ['latin'],
   display: 'swap',
