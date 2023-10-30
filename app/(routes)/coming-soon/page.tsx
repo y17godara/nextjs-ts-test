@@ -36,8 +36,6 @@ function ComingSoon() {
         <div className='relative px-2'>
           <div className='grid max-w-[60rem] items-center rounded-lg bg-black/40 p-2 backdrop-blur-2xl lg:min-h-[40rem] lg:grid-cols-2'>
             {/* top */}
-
-            {/* bottom */}
             <div className='relative p-4 text-center text-white lg:text-start'>
               <div className='flex h-full w-full flex-col items-center justify-center gap-4 p-4 text-center'>
                 <div className='h-24 w-24'>
@@ -60,6 +58,7 @@ function ComingSoon() {
               </div>
             </div>
 
+            {/* bottom */}
             <div className='lg:text-start" relative p-4 text-center text-white'>
               <div className='flex h-full w-full flex-col items-center justify-center p-4 text-center'>
                 <h2 className='text-4xl font-bold lg:mt-0'>
