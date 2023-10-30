@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { poppins, nunito } from '@/lib/font';
+import { poppins, nunito } from '@/lib/utils/font';
 import { cn } from '@/lib/utils/cn';
 import './globals.css';
 import { siteConfig } from '@/config/site';
