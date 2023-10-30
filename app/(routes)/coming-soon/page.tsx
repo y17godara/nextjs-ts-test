@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import type { Metadata } from 'next';
-import { nunito } from '@/lib/font';
+import { nunito } from '@/lib/utils/font';
 import { cn } from '@/lib/utils';
 import bgImage from '@/public/static/cs-bg-2.jpg';
 import Image from 'next/image';
