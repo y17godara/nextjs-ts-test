@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import type { Metadata } from 'next';
 import { nunito } from '@/lib/font';
 import { cn } from '@/lib/utils';
-import bgImage from '@/public/static/cs-bg-1.jpg';
+import bgImage from '@/public/static/cs-bg-2.jpg';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Icons } from '@/components/icons';
@@ -65,7 +65,7 @@ function ComingSoon() {
                 <h2 className='text-4xl font-bold lg:mt-0'>
                   Launching Soon...
                 </h2>
-                <p className='text-lg font-medium text-gray-300'>
+                <p className='text-2xl font-medium text-gray-300'>
                   Welcome to my Personal Portfolio Website
                 </p>
                 <h3 className='my-4 text-base font-medium text-gray-300'>
