@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -16,6 +16,7 @@ import { Input } from '@/components/ui/input';
 import { toast } from '@/components/ui/use-toast';
 // import { ToastAction } from '@/components/ui/toast';
 import { handleNewsletterSubscription } from '@/actions/newsLetter/index';
+import { Icons } from './icons';
 
 interface formSchema {
   email: string;
@@ -33,13 +34,17 @@ function EmailSubscribeForm() {
     },
   });
 
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const isButtonDisabled =
-    form.formState.isSubmitting || !form.formState.isValid;
+    form.formState.isSubmitting || !form.formState.isValid || isLoading;
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+    setIsLoading(true); // Set loading state to true when submitting
+    // console.log(values);
     try {
       const response = await handleNewsletterSubscription(values.email);
+      form.reset(); // clear form after submission
       if (
         (response.status as number) >= 200 &&
         (response.status as number) < 300
@@ -64,11 +69,13 @@ function EmailSubscribeForm() {
         title: 'Uh oh! Something went wrong',
         description: 'Code 505, Please try again or contact support for help.',
       });
+    } finally {
+      setIsLoading(false); // Set loading state to false after form submission
     }
   }
   return (
     <>
-      {/* fullname and email form with submit button usign shadcn ui */}
+      {/* email form with submit button usign shadcn ui */}
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
@@ -88,7 +95,17 @@ function EmailSubscribeForm() {
                     />
                   </FormControl>
                   <Button disabled={isButtonDisabled} type='submit'>
-                    Submit
+                    {isLoading ? (
+                      <div className='flex flex-row items-center gap-2'>
+                        Subscribing
+                        <Icons.spinner className='h-4 w-4 animate-spin' />
+                      </div>
+                    ) : (
+                      <div className='flex flex-row items-center gap-2'>
+                        Subscribe
+                        <Icons.sumbit className='h-4 w-4' />
+                      </div>
+                    )}
                   </Button>
                 </div>
                 <FormMessage />
