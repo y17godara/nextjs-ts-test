@@ -39,13 +39,14 @@ function ComingSoon() {
 
             {/* bottom */}
             <div className='relative p-4 text-center text-white lg:text-start'>
-              <div className='flex h-full w-full flex-col items-center justify-center gap-2 p-4 text-center'>
-                <div>
+              <div className='flex h-full w-full flex-col items-center justify-center gap-4 p-4 text-center'>
+                <div className='h-24 w-24'>
                   <Image
                     src='/icons/favicon.ico'
                     alt='Logo'
-                    height={50}
-                    width={50}
+                    height={100}
+                    width={100}
+                    className='flex justify-center items-center rounded-full h-full w-full'
                     quality={100}
                     priority={true}
                   />
