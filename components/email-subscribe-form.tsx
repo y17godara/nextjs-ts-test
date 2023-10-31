@@ -14,7 +14,6 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { toast } from '@/components/ui/use-toast';
-// import { ToastAction } from '@/components/ui/toast';
 import { handleNewsletterSubscription } from '@/actions/newsLetter/index';
 import { Icons } from './icons';
 

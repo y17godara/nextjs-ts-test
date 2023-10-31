@@ -1,12 +1,10 @@
 import type { Metadata } from 'next';
-import { poppins, nunito } from '@/lib/utils/font';
+import { poppins } from '@/lib/utils/font';
 import { cn } from '@/lib/utils/cn';
 import './globals.css';
 import { siteConfig } from '@/config/site';
 import { Toaster } from '@/components/ui/toaster';
 import { ThemeProvider } from '@/components/theme-provider';
-// import { Header } from '@/components/header';
-// import { Footer } from '@/components/footer';
 
 export const metadata: Metadata = {
   title: {

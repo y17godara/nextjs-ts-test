@@ -1,4 +1,3 @@
-// import Link from "@/components/ui/Link";
 import Link from 'next/link';
 import { Metadata } from 'next';
 

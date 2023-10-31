@@ -1,8 +1,6 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import {
   Sheet,
   SheetClose,
@@ -15,10 +13,6 @@ import {
 } from '@/components/ui/sheet';
 import { Icons } from './icons';
 import Link from 'next/link';
-
-const SHEET_SIDES = ['left'] as const;
-
-type SheetSide = (typeof SHEET_SIDES)[number];
 
 function SliderNavbar() {
   return (
@@ -44,27 +38,10 @@ function SliderNavbar() {
               Make changes to your profile here.
             </SheetDescription>
           </SheetHeader>
-          {/* <div className='grid gap-4 py-4'>
-              <div className='grid grid-cols-4 items-center gap-4'>
-                <Label htmlFor='name' className='text-right'>
-                  Name
-                </Label>
-                <Input id='name' value='Pedro Duarte' className='col-span-3' />
-              </div>
-              <div className='grid grid-cols-4 items-center gap-4'>
-                <Label htmlFor='username' className='text-right'>
-                  Username
-                </Label>
-                <Input id='username' value='@peduarte' className='col-span-3' />
-              </div>
-            </div> */}
           <div className='grid items-center justify-center gap-2 py-6 text-center'>
             Example content
           </div>
           <SheetFooter>
-            {/* <SheetClose asChild>
-                <Button type='submit'>Save changes</Button>
-              </SheetClose> */}
             <SheetClose asChild>
               <Button variant='default'>Cancel</Button>
             </SheetClose>

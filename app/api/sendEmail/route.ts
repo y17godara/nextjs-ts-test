@@ -1,5 +1,4 @@
 import nodemailer from 'nodemailer';
-// import { NextRequest, NextResponse } from 'next/server';
 
 /* function: sendMail */
 async function sendMail({
