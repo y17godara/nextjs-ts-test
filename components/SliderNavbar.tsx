@@ -24,7 +24,7 @@ function SliderNavbar() {
         className='z-10 flex border border-input bg-transparent text-end shadow-sm hover:bg-accent hover:text-accent-foreground'
       >
         <MagneticIcon>
-          <Icons.gitHub className='h-6 w-6' />
+          <Icons.gitHub variant='hover:text-[#4886be]' className='h-6 w-2' />
         </MagneticIcon>
       </Link>
 
@@ -32,7 +32,7 @@ function SliderNavbar() {
         <SheetTrigger asChild>
           <Button className='z-10 flex' variant='outline'>
             <MagneticIcon>
-              <Icons.menu className='h-6 w-6' />
+              <Icons.menu variant='hover:text-[#ecac50]'  className='h-6 w-2' />
             </MagneticIcon>
           </Button>
         </SheetTrigger>
