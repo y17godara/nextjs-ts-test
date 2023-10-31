@@ -24,6 +24,7 @@ function SliderNavbar() {
   return (
     <div className='flex flex-row items-center justify-center gap-2 p-1'>
       <Link
+        aria-label='Github Profile'
         href={'#'}
         className='z-10 flex border border-input bg-transparent text-end shadow-sm hover:bg-accent hover:text-accent-foreground'
       >
@@ -57,9 +58,9 @@ function SliderNavbar() {
                 <Input id='username' value='@peduarte' className='col-span-3' />
               </div>
             </div> */}
-            <div className='grid gap-2 py-6 justify-center items-center text-center'>
-                Example content
-            </div>
+          <div className='grid items-center justify-center gap-2 py-6 text-center'>
+            Example content
+          </div>
           <SheetFooter>
             {/* <SheetClose asChild>
                 <Button type='submit'>Save changes</Button>

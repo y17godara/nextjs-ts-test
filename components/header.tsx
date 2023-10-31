@@ -16,6 +16,7 @@ export function Header() {
           </div>
           <div className='flex flex-row items-center gap-6'>
             <Link
+              aria-label='X App/ Twitter'
               href={'https://x.com/y17godara'}
               className={cn('w-0 px-0')}
               target='_blank'

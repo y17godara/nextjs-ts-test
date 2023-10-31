@@ -9,8 +9,7 @@
 [] Add Google Analytics
 [] Emal Verification (Anti Spam)
 [] Checkbox Accept Terms
-[] 
-
+[]
 
 ##Advanced
 

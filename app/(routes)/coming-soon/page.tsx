@@ -37,7 +37,7 @@ function ComingSoon() {
           <div className='relative px-4 py-2'>
             <div className='grid max-w-[60rem] items-center rounded-lg bg-black/40 p-2 backdrop-blur-2xl lg:min-h-[40rem] lg:grid-cols-2'>
               {/* top */}
-              <div className='absolute top-0 right-0 justify-end flex text-end'>
+              <div className='absolute right-0 top-0 flex justify-end text-end'>
                 <SliderNavbar />
               </div>
               <div className='relative p-4 text-center text-white lg:text-start'>
@@ -101,6 +101,7 @@ function ComingSoon() {
                         },
                       ].map((item, index) => (
                         <Link
+                          aria-label={item.name}
                           key={index}
                           href={item.url}
                           target='_blank'
