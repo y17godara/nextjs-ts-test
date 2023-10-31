@@ -30,9 +30,9 @@ function SliderNavbar() {
 
       <Sheet key={'left'}>
         <SheetTrigger asChild>
-          <Button className='z-10 flex' variant='outline'>
+          <Button aria-labelledby="button" className='z-10 flex' variant='outline'>
             <MagneticIcon>
-              <Icons.menu variant='hover:text-[#ecac50]'  className='h-6 w-2' />
+              <Icons.menu variant='hover:text-[#ecac50]' className='h-6 w-2' />
             </MagneticIcon>
           </Button>
         </SheetTrigger>
@@ -48,7 +48,7 @@ function SliderNavbar() {
           </div>
           <SheetFooter>
             <SheetClose asChild>
-              <Button variant='default'>Cancel</Button>
+              <Button aria-labelledby="button" variant='default'>Cancel</Button>
             </SheetClose>
           </SheetFooter>
         </SheetContent>

@@ -10,6 +10,7 @@ import EmailSubscribeForm from '@/components/email-subscribe-form';
 import Loading from './loading';
 import SliderNavbar from '@/components/SliderNavbar';
 import MagneticIcon from '@/components/frameMotion/MagneticIcon';
+import { LogoDiv } from './LogoDiv';
 
 export const metadata: Metadata = {
   title: 'Coming Soon',
@@ -43,17 +44,7 @@ function ComingSoon() {
               </div>
               <div className='relative p-4 text-center text-white lg:text-start'>
                 <div className='flex h-full w-full flex-col items-center justify-center gap-4 p-4 text-center'>
-                  <div className='h-24 w-24'>
-                    <Image
-                      src='/icons/favicon.ico'
-                      alt='Logo'
-                      height={100}
-                      width={100}
-                      className='flex h-full w-full items-center justify-center rounded-full'
-                      quality={100}
-                      priority={true}
-                    />
-                  </div>
+                  <LogoDiv />
                   <h2 className='text-4xl font-bold lg:mt-0'>
                     We are working on something awesome
                   </h2>

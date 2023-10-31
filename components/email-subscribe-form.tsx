@@ -93,7 +93,7 @@ function EmailSubscribeForm() {
                       {...field}
                     />
                   </FormControl>
-                  <Button disabled={isButtonDisabled} type='submit'>
+                  <Button aria-labelledby="button"  disabled={isButtonDisabled} type='submit'>
                     {isLoading ? (
                       <div className='flex flex-row items-center gap-2'>
                         Subscribing
