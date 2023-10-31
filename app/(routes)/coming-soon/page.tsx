@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { Icons } from '@/components/icons';
 import EmailSubscribeForm from '@/components/email-subscribe-form';
 import Loading from './loading';
+import SliderNavbar from '@/components/SliderNavbar';
 
 export const metadata: Metadata = {
   title: 'Coming Soon',
@@ -33,7 +34,7 @@ function ComingSoon() {
 
       {/* Content */}
       <div className='relative flex min-h-screen items-center justify-center'>
-        <div className='relative px-2'>
+        <div className='relative px-4 py-2'>
           <div className='grid max-w-[60rem] items-center rounded-lg bg-black/40 p-2 backdrop-blur-2xl lg:min-h-[40rem] lg:grid-cols-2'>
             {/* top */}
             <div className='relative p-4 text-center text-white lg:text-start'>
