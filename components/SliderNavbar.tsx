@@ -1,5 +1,6 @@
 'use client';
 
+import MagneticIcon from '@/components/frameMotion/MagneticIcon';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
@@ -22,13 +23,17 @@ function SliderNavbar() {
         href={'#'}
         className='z-10 flex border border-input bg-transparent text-end shadow-sm hover:bg-accent hover:text-accent-foreground'
       >
-        <Icons.gitHub className='h-6 w-6' />
+        <MagneticIcon>
+          <Icons.gitHub className='h-6 w-6' />
+        </MagneticIcon>
       </Link>
 
       <Sheet key={'left'}>
         <SheetTrigger asChild>
           <Button className='z-10 flex' variant='outline'>
-            <Icons.menu className='h-6 w-6' />
+            <MagneticIcon>
+              <Icons.menu className='h-6 w-6' />
+            </MagneticIcon>
           </Button>
         </SheetTrigger>
         <SheetContent side={'left'}>

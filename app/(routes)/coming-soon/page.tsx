@@ -9,6 +9,7 @@ import { Icons } from '@/components/icons';
 import EmailSubscribeForm from '@/components/email-subscribe-form';
 import Loading from './loading';
 import SliderNavbar from '@/components/SliderNavbar';
+import MagneticIcon from '@/components/frameMotion/MagneticIcon';
 
 export const metadata: Metadata = {
   title: 'Coming Soon',
@@ -79,24 +80,36 @@ function ComingSoon() {
                   <EmailSubscribeForm />
 
                   {/* Socials */}
-                  <div className='mt-4'>
+                  <div className='mt-6'>
                     <h3 className='text-md'>Follow Me</h3>
-                    <div className='flex items-center justify-center space-x-2'>
+                    <div className='my-4 flex items-center justify-center space-x-2'>
                       {[
                         {
                           name: 'LinkedIn',
-                          icon: <Icons.linkedIn />,
+                          icon: (
+                            <Icons.linkedIn variant='hover:text-[#0077b5]' />
+                          ),
                           url: '#',
                         },
-                        { name: 'X', icon: <Icons.twitter />, url: '#' },
+                        {
+                          name: 'X',
+                          icon: (
+                            <Icons.twitter variant='hover:text-[#55acee]' />
+                          ),
+                          url: '#',
+                        },
                         {
                           name: 'Instagram',
-                          icon: <Icons.instagram />,
+                          icon: (
+                            <Icons.instagram variant='hover:text-[#d62976]' />
+                          ),
                           url: '#',
                         },
                         {
                           name: 'Facebook',
-                          icon: <Icons.facebook />,
+                          icon: (
+                            <Icons.facebook variant='hover:text-[#3b5998]' />
+                          ),
                           url: '#',
                         },
                       ].map((item, index) => (
@@ -107,9 +120,9 @@ function ComingSoon() {
                           target='_blank'
                           rel='noopener noreferrer'
                           title={item.name}
-                          className='hover:text-grey-200 text-3xl text-gray-300'
+                          className='text-3xl text-gray-300'
                         >
-                          {item.icon}
+                          <MagneticIcon>{item.icon}</MagneticIcon>
                         </Link>
                       ))}
                     </div>
