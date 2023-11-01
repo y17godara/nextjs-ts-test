@@ -3,8 +3,7 @@ import { poppins } from '@/lib/utils/font';
 import { cn } from '@/lib/utils/cn';
 import './globals.css';
 import { siteConfig } from '@/config/site';
-import { Toaster } from '@/components/ui/toaster';
-import { ThemeProvider } from '@/components/theme-provider';
+import RootProvider from './Provider';
 
 export const metadata: Metadata = {
   title: {
@@ -84,19 +83,7 @@ export default function RootLayout({
           poppins.variable
         )}
       >
-        <ThemeProvider
-          attribute='class'
-          defaultTheme='system'
-          enableSystem
-          disableTransitionOnChange
-        >
-          <div className='relative flex min-h-screen flex-col'>
-            {/* <Header /> */}
-            <main className='flex-1'>{children}</main>
-            {/* <Footer /> */}
-          </div>
-        </ThemeProvider>
-        <Toaster />
+        <RootProvider>{children}</RootProvider>
       </body>
     </html>
   );
