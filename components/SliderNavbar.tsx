@@ -13,24 +13,13 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet';
 import { Icons } from './icons';
-import Link from 'next/link';
 
 function SliderNavbar() {
   return (
     <div className='flex flex-row items-center justify-center gap-2 p-1'>
-      <Link
-        aria-label='Github Profile'
-        href={'#'}
-        className='z-10 flex border border-input bg-transparent text-end shadow-sm hover:bg-accent hover:text-accent-foreground'
-      >
-        <MagneticIcon>
-          <Icons.gitHub variant='hover:text-[#4886be]' className='h-6 w-2' />
-        </MagneticIcon>
-      </Link>
-
       <Sheet key={'left'}>
         <SheetTrigger asChild>
-          <Button aria-labelledby="button" className='z-10 flex' variant='outline'>
+          <Button aria-labelledby='button' className='z-10 bg-black/10 dark:bg-black/40 dark:text-gray-300' variant='default'>
             <MagneticIcon>
               <Icons.menu variant='hover:text-[#ecac50]' className='h-6 w-2' />
             </MagneticIcon>
@@ -48,7 +37,9 @@ function SliderNavbar() {
           </div>
           <SheetFooter>
             <SheetClose asChild>
-              <Button aria-labelledby="button" variant='default'>Cancel</Button>
+              <Button aria-labelledby='button' variant='default'>
+                Cancel
+              </Button>
             </SheetClose>
           </SheetFooter>
         </SheetContent>
