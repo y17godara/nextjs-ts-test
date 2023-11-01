@@ -1,5 +1,14 @@
 import nodemailer from 'nodemailer';
 
+type MailInfo = {
+  from: string;
+  to: string;
+  subject: string;
+  text: string;
+  html: string;
+  date: Date;
+};
+
 /* function: sendMail */
 async function sendMail({
   subject,
@@ -21,16 +30,19 @@ async function sendMail({
       },
     } as nodemailer.TransportOptions); // type assertion
 
+    const date = new Date();
     // Send the email
-    const info = await transporter.sendMail({
-      from: `"yash godara" <no-reply@example.com>`,
-      to: toEmail,
+    const info = (await transporter.sendMail({
+      from: '"Yash Godara" <cs.y17godara@gmail.com>',
+      to: toEmail.toString(),
       subject,
       text: otpText,
-    });
+      date,
+      html: `<b>${otpText}</b>`,
+    })) as MailInfo;
 
     // If the email was sent successfully, return a 200 status.
-    console.log('Message sent: %s', info);
+    console.log('Message sent: %s', { info });
     return Promise.resolve({ status: 200 });
   } catch (error) {
     // If there was an error, return a 500 error.

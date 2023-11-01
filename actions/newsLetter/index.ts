@@ -2,6 +2,7 @@
 
 // Imports/dependencies
 import sendMail from '@/app/api/sendEmail/route';
+import { v4 as uuidv4 } from 'uuid';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient(); // instantiate the PrismaClient
@@ -24,15 +25,20 @@ export async function handleNewsletterSubscription(
 
     console.log('Email does not exist, Subscribing...');
 
+
     // If the email does not exist, create a new subscription.
     await prisma.emailSubscription.create({
-      data: { email },
+      data: {
+        uuid: uuidv4(),
+        email,
+        active: true,
+      },
     });
 
     // Send a confirmation/welcome email to the user.
     const emailResponse = await sendMail({
       subject: 'Newsletter Subscription',
-      toEmail: email,
+      toEmail: email.toString(),
       otpText: 'You have successfully subscribed to our newsletter.',
     });
 

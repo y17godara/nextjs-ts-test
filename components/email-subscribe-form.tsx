@@ -42,7 +42,7 @@ function EmailSubscribeForm() {
     setIsLoading(true); // Set loading state to true when submitting
     // console.log(values);
     try {
-      const response = await handleNewsletterSubscription(values.email);
+      const response = await handleNewsletterSubscription(values.email.toString());
       form.reset(); // clear form after submission
       if (
         (response.status as number) >= 200 &&
@@ -51,14 +51,14 @@ function EmailSubscribeForm() {
         toast({
           variant: 'default',
           title: 'Success!',
-          description: 'You are now subscribed to our newsletter.',
+          description: `You are now subscribed to our newsletter.`,
         });
       } else {
         toast({
           variant: 'destructive',
           title: 'Uh oh! Something went wrong',
           description:
-            'Code: 404, Please try again or contact support for help.',
+            `Code: ${response.status}, Please try again or contact support for help.`,
         });
       }
     } catch (error) {
