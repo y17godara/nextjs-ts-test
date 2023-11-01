@@ -37,7 +37,7 @@ function ComingSoon() {
         {/* Content */}
         <div className='relative flex min-h-screen items-center justify-center'>
           <div className='relative px-4 py-2'>
-            <div className='grid max-w-[60rem] items-center rounded-lg bg-black/40 p-2 backdrop-blur-2xl lg:min-h-[40rem] lg:grid-cols-2'>
+            <div className='grid max-w-[60rem] items-center rounded-lg bg-black/10  dark:bg-black/40 p-2 backdrop-blur-2xl lg:min-h-[40rem] lg:grid-cols-2'>
               {/* top */}
               <div className='absolute right-0 top-0 flex justify-end text-end'>
                 <SliderNavbar />

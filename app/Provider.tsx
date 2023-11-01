@@ -13,7 +13,7 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
         disableTransitionOnChange
       >
         <div className='relative flex min-h-screen flex-col'>
-          <Header />
+          {/* <Header /> */}
           <main className='flex-1'>{children}</main>
           {/* <Footer /> */}
         </div>
