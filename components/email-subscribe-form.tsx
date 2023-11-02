@@ -42,7 +42,9 @@ function EmailSubscribeForm() {
     setIsLoading(true); // Set loading state to true when submitting
     // console.log(values);
     try {
-      const response = await handleNewsletterSubscription(values.email.toString());
+      const response = await handleNewsletterSubscription(
+        values.email.toString()
+      );
       form.reset(); // clear form after submission
       if (
         (response.status as number) >= 200 &&
@@ -57,8 +59,7 @@ function EmailSubscribeForm() {
         toast({
           variant: 'destructive',
           title: 'Uh oh! Something went wrong',
-          description:
-            `Code: ${response.status}, Please try again or contact support for help.`,
+          description: `Code: ${response.status}, Please try again or contact support for help.`,
         });
       }
     } catch (error) {
@@ -93,7 +94,11 @@ function EmailSubscribeForm() {
                       {...field}
                     />
                   </FormControl>
-                  <Button aria-labelledby="button"  disabled={isButtonDisabled} type='submit'>
+                  <Button
+                    aria-labelledby='button'
+                    disabled={isButtonDisabled}
+                    type='submit'
+                  >
                     {isLoading ? (
                       <div className='flex flex-row items-center gap-2'>
                         Subscribing

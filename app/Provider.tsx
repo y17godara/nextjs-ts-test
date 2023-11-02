@@ -1,11 +1,18 @@
 import React from 'react';
 import { Toaster } from '@/components/ui/toaster';
 import { ThemeProvider } from '@/components/theme-provider';
-import { Header } from '@/components/header';
+// import { SessionProvider } from 'next-auth/react';
 
-const Provider = ({ children }: { children: React.ReactNode }) => {
+const Provider = ({
+  children, // Session
+}: {
+  children: React.ReactNode;
+  // Session: Session | null;
+}) => {
+  const session = null;
   return (
     <>
+      {/* <SessionProvider session={Session}> */}
       <ThemeProvider
         attribute='class'
         defaultTheme='system'
@@ -19,6 +26,7 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
         </div>
       </ThemeProvider>
       <Toaster />
+      {/* </SessionProvider> */}
     </>
   );
 };

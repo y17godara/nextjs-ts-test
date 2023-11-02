@@ -14,7 +14,6 @@ export const LogoDiv = () => {
       }}
     >
       <Image
-        
         src={LOGO}
         alt='Logo'
         height={100}

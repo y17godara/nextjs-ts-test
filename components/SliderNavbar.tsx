@@ -19,7 +19,11 @@ function SliderNavbar() {
     <div className='flex flex-row items-center justify-center gap-2 p-1'>
       <Sheet key={'left'}>
         <SheetTrigger asChild>
-          <Button aria-labelledby='button' className='z-10 bg-black/10 dark:bg-black/40 dark:text-gray-300' variant='default'>
+          <Button
+            aria-labelledby='button'
+            className='z-10 bg-black/10 dark:bg-black/40 dark:text-gray-300'
+            variant='default'
+          >
             <MagneticIcon>
               <Icons.menu variant='hover:text-[#ecac50]' className='h-6 w-2' />
             </MagneticIcon>

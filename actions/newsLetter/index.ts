@@ -25,7 +25,6 @@ export async function handleNewsletterSubscription(
 
     console.log('Email does not exist, Subscribing...');
 
-
     // If the email does not exist, create a new subscription.
     await prisma.emailSubscription.create({
       data: {

@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils/cn';
 import './globals.css';
 import { siteConfig } from '@/config/site';
 import RootProvider from './Provider';
+import { NextAuthProvider } from '@/components/SessionProvider';
 
 export const metadata: Metadata = {
   title: {
@@ -83,7 +84,9 @@ export default function RootLayout({
           poppins.variable
         )}
       >
-        <RootProvider>{children}</RootProvider>
+        <NextAuthProvider>
+          <RootProvider>{children}</RootProvider>
+        </NextAuthProvider>
       </body>
     </html>
   );
