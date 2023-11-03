@@ -33,8 +33,9 @@ const LogInForm = () => {
     },
   });
 
-  const onSubmit = (values: z.infer<typeof FormSchema>) => {
-    console.log(values);
+  const onSubmit = async (values: z.infer<typeof FormSchema>) => {
+    console.log({values});
+    
   };
 
   return (

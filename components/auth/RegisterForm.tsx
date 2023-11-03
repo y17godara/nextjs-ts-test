@@ -15,6 +15,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import GoogleSignInButton from '@/components/GoogleSignInButton';
+import { registerUser } from '@/actions/auth/index';
 
 const FormSchema = z
   .object({
@@ -47,8 +48,15 @@ const RegisterForm = () => {
     },
   });
 
-  const onSubmit = (values: z.infer<typeof FormSchema>) => {
-    console.log(values);
+  const onSubmit = async (values: z.infer<typeof FormSchema>) => {
+    console.log({ values });
+
+    try {
+      const response = await registerUser(values);
+      console.log({ response });
+    } catch (error) {
+      console.log({ 'Client Side Error: ': error });
+    }
   };
 
   return (
@@ -88,7 +96,10 @@ const RegisterForm = () => {
               <FormItem>
                 <FormLabel>Profile Picture</FormLabel>
                 <FormControl>
-                  <Input placeholder='https://example.com/image.png' {...field} />
+                  <Input
+                    placeholder='https://example.com/image.png'
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
