@@ -1,7 +1,7 @@
 'use server';
 
 // Imports/dependencies
-import sendMail from '@/app/api/sendEmail/route';
+import sendMail from './sendMail';
 import { v4 as uuidv4 } from 'uuid';
 import { PrismaClient } from '@prisma/client';
 

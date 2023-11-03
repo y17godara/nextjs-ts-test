@@ -9,16 +9,18 @@ type MailInfo = {
   date: Date;
 };
 
-/* function: sendMail */
-async function sendMail({
-  subject,
-  toEmail,
-  otpText,
-}: {
+type SendMailFunction = (params: {
   subject: string;
   toEmail: string;
   otpText: string;
-}): Promise<{ status: number }> {
+}) => Promise<{ status: number }>;
+
+/* function: sendMail */
+const sendMail: SendMailFunction = async ({
+  subject,
+  toEmail,
+  otpText,
+}) => {
   try {
     // Create a nodemailer transporter
     const transporter = nodemailer.createTransport({
