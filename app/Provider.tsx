@@ -9,7 +9,7 @@ const Provider = ({
   children: React.ReactNode;
   // Session: Session | null;
 }) => {
-  const session = null;
+  // const session = null;
   return (
     <>
       {/* <SessionProvider session={Session}> */}
