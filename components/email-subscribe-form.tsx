@@ -16,18 +16,11 @@ import { Input } from '@/components/ui/input';
 import { toast } from '@/components/ui/use-toast';
 import { handleNewsletterSubscription } from '@/actions/newsLetter/index';
 import { Icons } from './icons';
-
-interface formSchema {
-  email: string;
-}
-
-const formSchema = z.object({
-  email: z.string().email(),
-});
+import { newsLetterSchema } from '@/lib/utils/validations';
 
 function EmailSubscribeForm() {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<z.infer<typeof newsLetterSchema>>({
+    resolver: zodResolver(newsLetterSchema),
     defaultValues: {
       email: '',
     },
@@ -38,7 +31,7 @@ function EmailSubscribeForm() {
   const isButtonDisabled =
     form.formState.isSubmitting || !form.formState.isValid || isLoading;
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof newsLetterSchema>) {
     setIsLoading(true); // Set loading state to true when submitting
     // console.log(values);
     try {
