@@ -16,11 +16,7 @@ type SendMailFunction = (params: {
 }) => Promise<{ status: number }>;
 
 /* function: sendMail */
-const sendMail: SendMailFunction = async ({
-  subject,
-  toEmail,
-  otpText,
-}) => {
+const sendMail: SendMailFunction = async ({ subject, toEmail, otpText }) => {
   try {
     // Create a nodemailer transporter
     const transporter = nodemailer.createTransport({
@@ -51,6 +47,6 @@ const sendMail: SendMailFunction = async ({
     console.log('Error while sending email', error);
     return Promise.resolve({ status: 500 });
   }
-}
+};
 
 export default sendMail;

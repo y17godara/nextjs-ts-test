@@ -7,7 +7,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Icons } from '@/components/icons';
 import EmailSubscribeForm from '@/components/email-subscribe-form';
-import Loading from './loading';
 import SliderNavbar from '@/components/SliderNavbar';
 import MagneticIcon from '@/components/frameMotion/MagneticIcon';
 import { LogoDiv } from './LogoDiv';
@@ -18,7 +17,6 @@ export const metadata: Metadata = {
 
 function ComingSoon() {
   return (
-    <Suspense fallback={<Loading />}>
       <section className={cn('relative min-h-screen w-full', nunito.variable)}>
         <Image
           src={bgImage}
@@ -124,7 +122,6 @@ function ComingSoon() {
           </div>
         </div>
       </section>
-    </Suspense>
   );
 }
 
