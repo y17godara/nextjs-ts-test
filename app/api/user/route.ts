@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { db } from '@/lib/utils/db';
-// import { hash } from 'bcrypt';
 import * as argon from 'argon2';
+import { userSchema } from '@/lib/utils/validations';
 
 export function GET() {
   return NextResponse.json({ success: true });
@@ -10,7 +10,7 @@ export function GET() {
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { email, username, password, image } = body;
+    const { email, username, password, image } = userSchema.parse(body);
 
     // check if user already exists
     const existingUserByEmail = await db.user.findUnique({
