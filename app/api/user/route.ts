@@ -25,10 +25,15 @@ export async function POST(req: Request) {
     });
 
     if (existingUserByEmail || existingUserByUsername) {
-      return NextResponse.json({
-        status: 409,
-        message: 'User already exists with that email or username',
-      });
+      return NextResponse.json(
+        {
+          user: null,
+          message: 'User already exists',
+        },
+        {
+          status: 400,
+        }
+      );
     }
 
     const hashedPassword = await hash(password, 10);
@@ -42,19 +47,29 @@ export async function POST(req: Request) {
       },
     });
 
-    return NextResponse.json({
-      user: {
-        email: newUser.email,
-        username: newUser.username,
+    return NextResponse.json(
+      {
+        user: {
+          id: newUser.id,
+          email: newUser.email,
+          username: newUser.username,
+          image: newUser.image,
+        },
+        message: 'User created successfully',
       },
-      message: 'User created successfully',
-      status: 200,
-    });
+      {
+        status: 200,
+      }
+    );
   } catch (error) {
-    return NextResponse.json({
-      user: null,
-      message: "Couldn't create user",
-      status: 500,
-    });
+    return NextResponse.json(
+      {
+        user: null,
+        message: "Couldn't create user",
+      },
+      {
+        status: 500,
+      }
+    );
   }
 }
