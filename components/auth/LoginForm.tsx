@@ -34,8 +34,11 @@ const LogInForm = () => {
   });
 
   const onSubmit = async (values: z.infer<typeof FormSchema>) => {
-    console.log({values});
-    
+    try {
+
+    } catch (error) {
+      
+    }
   };
 
   return (
@@ -73,7 +76,7 @@ const LogInForm = () => {
             )}
           />
         </div>
-        <Button className='w-full mt-6' type='submit'>
+        <Button className='mt-6 w-full' type='submit'>
           Sign in
         </Button>
       </form>
@@ -81,7 +84,7 @@ const LogInForm = () => {
         or
       </div>
       <GoogleSignInButton>Sign in with Google</GoogleSignInButton>
-      <p className='text-center text-sm text-gray-600 mt-2'>
+      <p className='mt-2 text-center text-sm text-gray-600'>
         If you don&apos;t have an account, please&nbsp;
         <Link className='text-blue-500 hover:underline' href='/auth/register'>
           Register

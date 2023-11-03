@@ -10,7 +10,7 @@ const GoogleSignInButton: FC<GoogleSignInButtonProps> = ({ children }) => {
 
   return (
     <Button onClick={loginWithGoogle} className='w-full gap-2'>
-      <Icons.googleIcon className='w-[auto] max-h-[30px]' />
+      <Icons.googleIcon className='max-h-[30px] w-[auto]' />
       {children}
     </Button>
   );

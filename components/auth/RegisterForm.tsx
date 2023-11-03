@@ -15,7 +15,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import GoogleSignInButton from '@/components/GoogleSignInButton';
-import { registerUser } from '@/actions/auth/index';
+import axios from 'axios';
 
 const FormSchema = z
   .object({
@@ -48,14 +48,34 @@ const RegisterForm = () => {
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof FormSchema>) => {
-    console.log({ values });
-
+  const onSubmit = async (data: z.infer<typeof FormSchema>) => {
     try {
-      const response = await registerUser(values);
-      console.log({ response });
+      const user = {
+        username: data.username,
+        email: data.email,
+        image: data.image,
+        password: data.password,
+      };
+
+      // Make a POST request to your API endpoint
+      const response = await axios.post(
+        'http://localhost:3000/api/user',
+        user,
+        {
+          headers: {
+            'Content-Type': 'application/json', // Example header
+          },
+        }
+      );
+
+      if (response.status === 200) {
+        console.log('User Created Successfully');
+      } else {
+        console.log('User Creation Failed');
+      }
     } catch (error) {
-      console.log({ 'Client Side Error: ': error });
+      // Handle any errors that occurred during the request
+      console.error('Server Error While Creating New User: ', error);
     }
   };
 
