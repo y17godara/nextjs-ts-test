@@ -1,5 +1,8 @@
 'use client';
 
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { Icons } from '@/components/icons';
 import { useForm } from 'react-hook-form';
 import {
   Form,
@@ -15,6 +18,8 @@ import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import Link from 'next/link';
 import GoogleSignInButton from '../GoogleSignInButton';
+import { toast } from '../ui/use-toast';
+import axios from 'axios';
 
 const FormSchema = z.object({
   email: z.string().min(1, 'Email is required').email('Invalid email'),
@@ -33,11 +38,59 @@ const LogInForm = () => {
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof FormSchema>) => {
-    try {
+  const router = useRouter();
 
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const isButtonDisabled =
+    form.formState.isSubmitting || !form.formState.isValid || isLoading;
+
+  const onSubmit = async (data: z.infer<typeof FormSchema>) => {
+    setIsLoading(true); // Set loading state to true when submitting
+    try {
+      const user = {
+        email: data.email,
+        password: data.password,
+      };
+
+      // Make a POST request to API endpoint
+      const response = await axios.post(
+        'http://localhost:3000/api/user',
+        user,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+
+      if (response.status === 200) {
+        console.log('User Created Successfully');
+        toast({
+          variant: 'default',
+          title: 'Success!',
+          description: `You have successfully logged in`,
+        });
+        router.push('/profile');
+      } else {
+        console.log('Error Creating User, Please Try Again');
+        toast({
+          variant: 'destructive',
+          title: 'Uh oh! Something went wrong',
+          description: `Code: ${response.status}, Please try again or contact support for help.`,
+        });
+      }
     } catch (error) {
-      
+      // Handle any errors that occurred during the request
+      console.error('Server Error While Login: ', error);
+      toast({
+        variant: 'destructive',
+        title: 'Uh oh! Something went wrong',
+        description: 'Code 505, Please try again or contact support for help.',
+      });
+    } finally {
+      form.reset(); // clear form after submission
+      setIsLoading(false);
     }
   };
 
@@ -76,8 +129,23 @@ const LogInForm = () => {
             )}
           />
         </div>
-        <Button className='mt-6 w-full' type='submit'>
-          Sign in
+        <Button
+          className='mt-6 w-full'
+          type='submit'
+          aria-label='Login'
+          disabled={isButtonDisabled}
+        >
+          {isLoading ? (
+            <div className='flex flex-row items-center gap-2'>
+              Please Wait
+              <Icons.spinner className='h-4 w-4 animate-spin' />
+            </div>
+          ) : (
+            <div className='flex flex-row items-center gap-2'>
+              Login
+              <Icons.sumbit className='h-4 w-4' />
+            </div>
+          )}
         </Button>
       </form>
       <div className='mx-auto my-4 flex w-full items-center justify-evenly before:mr-4 before:block before:h-px before:flex-grow before:bg-stone-400 after:ml-4 after:block after:h-px after:flex-grow after:bg-stone-400'>

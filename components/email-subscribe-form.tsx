@@ -38,7 +38,6 @@ function EmailSubscribeForm() {
       const response = await handleNewsletterSubscription(
         values.email.toString()
       );
-      form.reset(); // clear form after submission
       if (
         (response.status as number) >= 200 &&
         (response.status as number) < 300
@@ -63,6 +62,7 @@ function EmailSubscribeForm() {
         description: 'Code 505, Please try again or contact support for help.',
       });
     } finally {
+      form.reset(); // clear form after submission
       setIsLoading(false); // Set loading state to false after form submission
     }
   }

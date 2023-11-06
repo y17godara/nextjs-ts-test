@@ -1,5 +1,6 @@
 'use client';
 
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import {
   Form,
@@ -16,6 +17,9 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import GoogleSignInButton from '@/components/GoogleSignInButton';
 import axios from 'axios';
+import { useRouter } from 'next/navigation';
+import { toast } from '../ui/use-toast';
+import { Icons } from '@/components/icons';
 
 const FormSchema = z
   .object({
@@ -37,6 +41,10 @@ const FormSchema = z
   });
 
 const RegisterForm = () => {
+  const router = useRouter();
+
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -48,7 +56,11 @@ const RegisterForm = () => {
     },
   });
 
+  const isButtonDisabled =
+    form.formState.isSubmitting || !form.formState.isValid || isLoading;
+
   const onSubmit = async (data: z.infer<typeof FormSchema>) => {
+    setIsLoading(true); // Set loading state to true when submitting
     try {
       const user = {
         username: data.username,
@@ -57,25 +69,44 @@ const RegisterForm = () => {
         password: data.password,
       };
 
-      // Make a POST request to your API endpoint
+      // Make a POST request to API endpoint
       const response = await axios.post(
         'http://localhost:3000/api/user',
         user,
         {
           headers: {
-            'Content-Type': 'application/json', // Example header
+            'Content-Type': 'application/json',
           },
         }
       );
 
       if (response.status === 200) {
         console.log('User Created Successfully');
+        toast({
+          variant: 'default',
+          title: 'Success!',
+          description: `You have successfully created an account`,
+        });
+        router.push('/auth/login');
       } else {
-        console.log('User Creation Failed');
+        console.log('Error Creating User, Please Try Again');
+        toast({
+          variant: 'destructive',
+          title: 'Uh oh! Something went wrong',
+          description: `Code: ${response.status}, Please try again or contact support for help.`,
+        });
       }
     } catch (error) {
       // Handle any errors that occurred during the request
       console.error('Server Error While Creating New User: ', error);
+      toast({
+        variant: 'destructive',
+        title: 'Uh oh! Something went wrong',
+        description: 'Code 505, Please try again or contact support for help.',
+      });
+    } finally {
+      form.reset(); // clear form after submission
+      setIsLoading(false); // Set loading state to false after form submission
     }
   };
 
@@ -160,8 +191,23 @@ const RegisterForm = () => {
             )}
           />
         </div>
-        <Button className='mt-6 w-full' type='submit'>
-          Sign up
+        <Button
+          className='mt-6 w-full'
+          type='submit'
+          aria-label='Register'
+          disabled={isButtonDisabled}
+        >
+          {isLoading ? (
+            <div className='flex flex-row items-center gap-2'>
+              Please Wait
+              <Icons.spinner className='h-4 w-4 animate-spin' />
+            </div>
+          ) : (
+            <div className='flex flex-row items-center gap-2'>
+              Register Now!
+              <Icons.sumbit className='h-4 w-4' />
+            </div>
+          )}
         </Button>
       </form>
       <div className='mx-auto my-4 flex w-full items-center justify-evenly before:mr-4 before:block before:h-px before:flex-grow before:bg-stone-400 after:ml-4 after:block after:h-px after:flex-grow after:bg-stone-400'>
