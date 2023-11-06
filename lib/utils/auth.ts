@@ -4,13 +4,6 @@ import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import * as argon from 'argon2';
 import { db } from '@/lib/utils/db';
 
-interface User {
-  id: string;
-  name: string;
-  email: string;
-  image: string;
-}
-
 export const authOptions: NextAuthOptions = {
   // adapter
   adapter: PrismaAdapter(db),
@@ -69,8 +62,8 @@ export const authOptions: NextAuthOptions = {
 
           // return user
           return {
-            id: `${existingUserByEmail.uuid}`, // string
-            name: existingUserByEmail.username,
+            id: `${existingUserByEmail.id}`, // string
+            username: existingUserByEmail.username,
             email: existingUserByEmail.email,
             image: existingUserByEmail.image,
           };
@@ -81,4 +74,29 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   ],
+  // callbacks
+  callbacks: {
+    // jwt
+    async jwt({ token, user }) {
+      console.log('jwt', token, user);
+      if (user) {
+        return {
+          ...token,
+          username: user.username,
+        };
+      }
+      return token;
+    },
+    // session
+    async session({ session, token }) {
+      console.log('session', session, token);
+      return {
+        ...session,
+        user: {
+          ...session.user,
+          username: token.username,
+        },
+      };
+    },
+  },
 };
