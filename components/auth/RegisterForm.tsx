@@ -81,7 +81,6 @@ const RegisterForm = () => {
       );
 
       if (response.status === 200) {
-        console.log('User Created Successfully');
         toast({
           variant: 'default',
           title: 'Success!',
@@ -89,7 +88,6 @@ const RegisterForm = () => {
         });
         router.push('/auth/login');
       } else {
-        console.log('Error Creating User, Please Try Again');
         toast({
           variant: 'destructive',
           title: 'Uh oh! Something went wrong',
@@ -98,7 +96,6 @@ const RegisterForm = () => {
       }
     } catch (error) {
       // Handle any errors that occurred during the request
-      console.error('Server Error While Creating New User: ', error);
       toast({
         variant: 'destructive',
         title: 'Uh oh! Something went wrong',

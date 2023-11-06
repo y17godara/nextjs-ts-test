@@ -3,7 +3,6 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import * as argon from 'argon2';
 import { db } from '@/lib/utils/db';
-import { User } from 'lucide-react';
 
 interface User {
   id: string;

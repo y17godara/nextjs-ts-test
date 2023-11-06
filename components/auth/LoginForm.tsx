@@ -19,7 +19,7 @@ import { Button } from '../ui/button';
 import Link from 'next/link';
 import GoogleSignInButton from '../GoogleSignInButton';
 import { toast } from '../ui/use-toast';
-import axios from 'axios';
+import { signIn } from 'next-auth/react';
 
 const FormSchema = z.object({
   email: z.string().min(1, 'Email is required').email('Invalid email'),
@@ -48,41 +48,28 @@ const LogInForm = () => {
   const onSubmit = async (data: z.infer<typeof FormSchema>) => {
     setIsLoading(true); // Set loading state to true when submitting
     try {
-      const user = {
+      const signInData = await signIn('credentials', {
+        redirect: false,
         email: data.email,
         password: data.password,
-      };
-
-      // Make a POST request to API endpoint
-      const response = await axios.post(
-        'http://localhost:3000/api/user',
-        user,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      );
-
-      if (response.status === 200) {
-        console.log('User Created Successfully');
-        toast({
-          variant: 'default',
-          title: 'Success!',
-          description: `You have successfully logged in`,
-        });
-        router.push('/profile');
-      } else {
-        console.log('Error Creating User, Please Try Again');
+      });
+      console.log('FormData: ', { signInData });
+      if (signInData?.error) {
         toast({
           variant: 'destructive',
           title: 'Uh oh! Something went wrong',
-          description: `Code: ${response.status}, Please try again or contact support for help.`,
+          description: `Code: ${signInData.status}, Please try again or contact support for help.`,
         });
+      } else {
+        toast({
+          variant: 'default',
+          title: 'Success!',
+          description: `You have successfully logged in!`,
+        });
+        router.push('/user/profile');
       }
     } catch (error) {
       // Handle any errors that occurred during the request
-      console.error('Server Error While Login: ', error);
       toast({
         variant: 'destructive',
         title: 'Uh oh! Something went wrong',
@@ -90,7 +77,7 @@ const LogInForm = () => {
       });
     } finally {
       form.reset(); // clear form after submission
-      setIsLoading(false);
+      setIsLoading(false); // Set loading state to false after form submission
     }
   };
 
