@@ -26,6 +26,8 @@ export const authOptions: NextAuthOptions = {
     // error: '/auth/error',
     // verifyRequest: '/auth/verify-request',
   },
+  // secret
+  secret: process.env.NEXTAUTH_SECRET,
   // providers
   providers: [
     CredentialsProvider({
