@@ -13,6 +13,7 @@ import { LogoDiv } from './LogoDiv';
 
 export const metadata: Metadata = {
   title: 'Coming Soon',
+  description: 'Coming Soon page',
 };
 
 function ComingSoon() {

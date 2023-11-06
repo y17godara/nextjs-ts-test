@@ -1,6 +1,12 @@
 import React from 'react';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/utils/auth';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Profile',
+  description: 'Profile page',
+};
 
 async function Profile() {
   const session = await getServerSession(authOptions);
