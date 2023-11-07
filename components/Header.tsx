@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { poppins } from '@/lib/utils/font';
 import SliderNavbar from '@/components/SliderNavbar';
+import AuthButton from './auth-button';
 
 export default function Header() {
   return (
@@ -33,7 +34,8 @@ export default function Header() {
               </Link>
               <ModeToggle />
             </div>
-            <SliderNavbar />
+            {/* <SliderNavbar /> */}
+            <AuthButton />
           </div>
         </div>
       </div>
