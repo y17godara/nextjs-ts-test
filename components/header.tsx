@@ -5,7 +5,7 @@ import { Icons } from './icons';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
-export function Header() {
+export default function Header() {
   return (
     <>
       <div className='sticky top-0 z-50 w-full border-b bg-background/95 dark:backdrop-blur dark:supports-[backdrop-filter]:bg-background/60'>
