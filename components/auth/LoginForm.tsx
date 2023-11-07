@@ -53,7 +53,7 @@ const LogInForm = () => {
         email: data.email,
         password: data.password,
       });
-      console.log('FormData: ', { signInData });
+      // console.log('FormData: ', { signInData });
       if (signInData?.error) {
         toast({
           variant: 'destructive',
@@ -67,7 +67,7 @@ const LogInForm = () => {
           description: `You have successfully logged in!`,
         });
         router.refresh();
-        router.push('/user/profile');
+        router.push(`${process.env.NEXT_PUBLIC_APP_URL}/user/profile`);
       }
     } catch (error) {
       // Handle any errors that occurred during the request

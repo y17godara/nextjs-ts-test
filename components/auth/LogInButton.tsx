@@ -7,9 +7,8 @@ const LogOutButton = () => {
     const router = useRouter();
 
     const handelLogin: MouseEventHandler<HTMLButtonElement> = (event) => {
-        console.log('LogOutButton: handelLogin: event: ', event);
         router.refresh();
-        router.push('/auth/login');
+        router.push(`${process.env.NEXT_PUBLIC_APP_URL}/auth/login`);
     }
   return (
     <Button

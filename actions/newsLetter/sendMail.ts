@@ -40,11 +40,11 @@ const sendMail: SendMailFunction = async ({ subject, toEmail, otpText }) => {
     })) as MailInfo;
 
     // If the email was sent successfully, return a 200 status.
-    console.log('Message sent: %s', { info });
+    // console.log('Message sent: %s', { info });
     return Promise.resolve({ status: 200 });
   } catch (error) {
     // If there was an error, return a 500 error.
-    console.log('Error while sending email', error);
+    // console.log('Error while sending email', error);
     return Promise.resolve({ status: 500 });
   }
 };

@@ -19,11 +19,11 @@ export async function handleNewsletterSubscription(
 
     // If the email already exists, return a 400 error.
     if (existingSubscription) {
-      console.log('Email already exists');
+      // console.log('Email already exists');
       return Promise.resolve({ status: 400 });
     }
 
-    console.log('Email does not exist, Subscribing...');
+    // console.log('Email does not exist, Subscribing...');
 
     // If the email does not exist, create a new subscription.
     await prisma.emailSubscription.create({

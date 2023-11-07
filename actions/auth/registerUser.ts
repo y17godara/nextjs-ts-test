@@ -25,9 +25,9 @@ export async function registerUser(data: userSchema) {
     });
 
     // Handle the response from the server
-    console.log({
-      'New User Created: ': response.data,
-    });
+    // console.log({
+    //   'New User Created: ': response.data,
+    // });
   } catch (error) {
     // Handle any errors that occurred during the request
     console.error('Server Error While Creating New User: ', error);

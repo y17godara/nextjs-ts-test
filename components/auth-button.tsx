@@ -1,5 +1,5 @@
 import { getServerSession } from 'next-auth';
-import { authOptions } from '@/lib/utils/auth';
+import { authOptions } from 'auth';
 import LogOutButton from '@/components/auth/LogOutButton';
 import LogInButton from '@/components/auth/LogInButton';
 

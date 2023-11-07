@@ -18,7 +18,7 @@ import Link from 'next/link';
 import GoogleSignInButton from '@/components/GoogleSignInButton';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
-import { toast } from '../ui/use-toast';
+import { toast } from '@/components/ui/use-toast';
 import { Icons } from '@/components/icons';
 
 const FormSchema = z
@@ -71,10 +71,11 @@ const RegisterForm = () => {
 
       // Make a POST request to API endpoint
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_APP_URL}/api/user`,
+        `/api/user`,
         user,
         {
           headers: {
+            'Access-Control-Allow-Origin': '*', // Required for CORS support to work
             'Content-Type': 'application/json',
           },
         }
@@ -87,7 +88,7 @@ const RegisterForm = () => {
           description: `You have successfully created an account`,
         });
         router.refresh();
-        router.push('/auth/login');
+        router.push(`${process.env.NEXT_PUBLIC_APP_URL}/auth/login`);
       } else {
         toast({
           variant: 'destructive',

@@ -7,7 +7,7 @@ const LogOutButton = () => {
   return (
     <Button
       variant={'destructive'}
-      onClick={() => signOut({ callbackUrl: '/auth/login' })}
+      onClick={() => signOut({ callbackUrl: `${process.env.NEXT_PUBLIC_APP_URL}/auth/login` })}
     >
       Log Out
     </Button>
