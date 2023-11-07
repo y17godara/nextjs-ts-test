@@ -4,6 +4,10 @@ const nextConfig = {
   env: {
     metadataBase: process.env.NEXT_PUBLIC_APP_URL,
   },
+
+  images: {
+    domains: ['i.imgur.com'], // Add the hostname causing the error here
+  },
   // redirect from / to /coming-soon
   async redirects() {
     return [
