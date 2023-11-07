@@ -83,7 +83,9 @@ export default function RootLayout({
           poppins.variable
         )}
       >
-        <RootProvider>{children}</RootProvider>
+        <RootProvider>
+          {children}
+          </RootProvider>
       </body>
     </html>
   );

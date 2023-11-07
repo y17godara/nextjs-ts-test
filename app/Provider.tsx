@@ -1,18 +1,15 @@
 import React from 'react';
 import { Toaster } from '@/components/ui/toaster';
 import { ThemeProvider } from '@/components/theme-provider';
-// import { SessionProvider } from 'next-auth/react';
+import Header from '@/components/Header';
 
 const Provider = ({
-  children, // Session
+  children,
 }: {
   children: React.ReactNode;
-  // Session: Session | null;
 }) => {
-  // const session = null;
   return (
     <>
-      {/* <SessionProvider session={Session}> */}
       <ThemeProvider
         attribute='class'
         defaultTheme='system'
@@ -20,13 +17,12 @@ const Provider = ({
         disableTransitionOnChange
       >
         <div className='relative flex min-h-screen flex-col'>
-          {/* <Header /> */}
+          <Header />
           <main className='flex-1'>{children}</main>
           {/* <Footer /> */}
         </div>
       </ThemeProvider>
       <Toaster />
-      {/* </SessionProvider> */}
     </>
   );
 };

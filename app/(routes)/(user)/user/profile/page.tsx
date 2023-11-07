@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 async function Profile() {
   const session = await getServerSession(authOptions);
-  console.log(session);
+  console.log("Profile Page:", session);
   return (
     <>
       <h1>Profile</h1>
