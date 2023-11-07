@@ -36,9 +36,6 @@ function SliderNavbar() {
               Make changes to your profile here.
             </SheetDescription>
           </SheetHeader>
-          <div className='grid items-center justify-center gap-2 py-6 text-center'>
-            Example content
-          </div>
           <SheetFooter>
             <SheetClose asChild>
               <Button aria-labelledby='button' variant='default'>

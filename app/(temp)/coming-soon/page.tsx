@@ -7,7 +7,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Icons } from '@/components/icons';
 import EmailSubscribeForm from '@/components/email-subscribe-form';
-import SliderNavbar from '@/components/SliderNavbar';
 import MagneticIcon from '@/components/frameMotion/MagneticIcon';
 import { LogoDiv } from './LogoDiv';
 
@@ -38,9 +37,6 @@ function ComingSoon() {
         <div className='relative px-4 py-2'>
           <div className='grid max-w-[60rem] items-center rounded-lg bg-black/10  p-2 backdrop-blur-2xl dark:bg-black/40 lg:min-h-[40rem] lg:grid-cols-2'>
             {/* top */}
-            <div className='absolute right-0 top-0 flex justify-end text-end'>
-              <SliderNavbar />
-            </div>
             <div className='relative p-4 text-center text-white lg:text-start'>
               <div className='flex h-full w-full flex-col items-center justify-center gap-4 p-4 text-center'>
                 <LogoDiv />
