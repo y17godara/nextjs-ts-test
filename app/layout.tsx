@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: 'y17godara',
-      url: 'http://localhost:3000',
+      url: `${process.env.NEXT_PUBLIC_APP_URL}`,
     },
   ],
   creator: 'y17godara',
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     shortcut: '/favicon-16x16.png',
     apple: '/apple-touch-icon.png',
   },
-  metadataBase: new URL('http://localhost:3000'),
+  metadataBase: new URL(`${process.env.NEXT_PUBLIC_APP_URL}`),
   // manifest: `${siteConfig.url}/site.webmanifest`,
 };
 

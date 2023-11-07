@@ -18,7 +18,7 @@ export async function registerUser(data: userSchema) {
     };
 
     // Make a POST request to your API endpoint
-    const response = await axios.post('http://localhost:3000/api/user', user, {
+    const response = await axios.post(`${process.env.NEXT_PUBLIC_APP_URL}/api/user`, user, {
       headers: {
         'Content-Type': 'application/json', // Example header
       },

@@ -71,7 +71,7 @@ const RegisterForm = () => {
 
       // Make a POST request to API endpoint
       const response = await axios.post(
-        'http://localhost:3000/api/user',
+        `${process.env.NEXT_PUBLIC_APP_URL}/api/user`,
         user,
         {
           headers: {
