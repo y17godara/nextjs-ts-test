@@ -4,16 +4,22 @@ import { Terminal } from 'lucide-react';
 import { Icons } from './icons';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
+import { poppins } from '@/lib/utils/font';
+import AuthButton from './auth-button';
 
 export default function Header() {
   return (
     <>
-      <div className='sticky top-0 z-50 w-full border-b bg-background/95 dark:backdrop-blur dark:supports-[backdrop-filter]:bg-background/60'>
+      <div className={
+        cn(
+          'sticky top-0 z-50 w-full border-b bg-background/95 dark:backdrop-blur dark:supports-[backdrop-filter]:bg-background/60',
+          poppins.variable,
+        )
+      }>
         <div className='container flex h-14 items-center justify-between'>
-          <div className='flex flex-row items-center gap-2'>
+          <Link href="/" className='flex flex-row items-center gap-2'>
             <Terminal className='h-9 w-9' />
-            <h2 className='h-6 font-bold'>LOGO</h2>
-          </div>
+          </Link>
           <div className='flex flex-row items-center gap-12'>
             <Link
               aria-label='Github'
@@ -25,6 +31,9 @@ export default function Header() {
               <span className='sr-only'>Github</span>
             </Link>
             <ModeToggle />
+            <div>
+            <AuthButton />
+            </div>
           </div>
         </div>
       </div>

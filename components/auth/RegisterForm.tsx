@@ -86,6 +86,7 @@ const RegisterForm = () => {
           title: 'Success!',
           description: `You have successfully created an account`,
         });
+        router.refresh();
         router.push('/auth/login');
       } else {
         toast({

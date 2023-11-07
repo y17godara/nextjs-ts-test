@@ -66,6 +66,7 @@ const LogInForm = () => {
           title: 'Success!',
           description: `You have successfully logged in!`,
         });
+        router.refresh();
         router.push('/user/profile');
       }
     } catch (error) {
