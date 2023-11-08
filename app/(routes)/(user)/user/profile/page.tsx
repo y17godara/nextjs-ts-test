@@ -40,7 +40,7 @@ async function Profile() {
                     height={100}
                     quality={80}
                   />
-                  <p>{session?.user.username}</p>
+                  <p>{session?.user.username || session?.user.name}</p>
                   <p className='flex flex-row gap-2'>
                     {session?.user.email}
                     <span>
