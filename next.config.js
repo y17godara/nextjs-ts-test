@@ -6,7 +6,12 @@ const nextConfig = {
   },
 
   images: {
-    domains: ['i.imgur.com'], // Add the hostname causing the error here
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+    ],
   },
   // redirect from / to /coming-soon
   async redirects() {

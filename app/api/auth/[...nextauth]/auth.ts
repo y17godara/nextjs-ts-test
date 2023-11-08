@@ -1,4 +1,5 @@
 import { NextAuthOptions } from 'next-auth';
+import GoogleProvider from 'next-auth/providers/google';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import * as argon from 'argon2';
@@ -23,6 +24,10 @@ export const authOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   // providers
   providers: [
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+    }),
     CredentialsProvider({
       name: 'Credentials',
       credentials: {
@@ -51,13 +56,15 @@ export const authOptions: NextAuthOptions = {
           }
 
           // check if password is valid
-          const isValid = await argon.verify(
-            existingUserByEmail.password,
-            credentials.password
-          );
+          if (existingUserByEmail.password) {
+            const isValid = await argon.verify(
+              existingUserByEmail.password,
+              credentials.password
+            );
 
-          if (!isValid) {
-            return null;
+            if (!isValid) {
+              return null;
+            }
           }
 
           // return user

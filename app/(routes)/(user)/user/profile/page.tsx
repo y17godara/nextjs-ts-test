@@ -11,18 +11,14 @@ export const metadata: Metadata = {
   description: 'Profile page',
 };
 
-type Props = {
-  src: string;
-  width: number;
-  quality?: number;
-};
-
 async function Profile() {
   const session = await getServerSession(authOptions);
   // console.log("Profile Page:", session);
 
   // Check if the user's image is from "i.imgur.com" or not
-  const isImgurImage = session?.user?.image?.includes('i.imgur.com');
+  const isValidImage =
+    session?.user?.image?.includes('i.imgur.com') ||
+    session?.user?.image?.includes('lh3.googleusercontent.com');
   return (
     <>
       <section className='flex min-h-screen w-auto flex-col items-center justify-center gap-4'>
@@ -35,7 +31,7 @@ async function Profile() {
                   <Image
                     className='h-32 w-32 cursor-pointer rounded-full border-2 border-gray-800 dark:border-white'
                     src={
-                      isImgurImage
+                      isValidImage
                         ? session.user.image ?? defaultImageSrc
                         : defaultImageSrc
                     }
@@ -48,7 +44,10 @@ async function Profile() {
                   <p className='flex flex-row gap-2'>
                     {session?.user.email}
                     <span>
-                      <Icons.badgeNonVerified variant='text-yellow-400' className='h-2 w-2' />
+                      <Icons.badgeNonVerified
+                        variant='text-yellow-400'
+                        className='h-2 w-2'
+                      />
                     </span>
                   </p>
                 </div>
