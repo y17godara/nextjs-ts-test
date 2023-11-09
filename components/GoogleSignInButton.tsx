@@ -7,7 +7,7 @@ interface GoogleSignInButtonProps {
   children: ReactNode;
 }
 const GoogleSignInButton: FC<GoogleSignInButtonProps> = ({ children }) => {
-  const loginWithGoogle = () => signIn('google',  { callbackUrl: `${process.env.NEXT_PUBLIC_APP_URL}` });
+  const loginWithGoogle = () => signIn('google',  { callbackUrl: `${process.env.NEXT_PUBLIC_APP_URL}/user/profile` });
 
   return (
     <Button onClick={loginWithGoogle} className='w-full gap-2'>
