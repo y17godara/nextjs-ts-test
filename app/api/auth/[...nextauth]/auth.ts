@@ -16,8 +16,8 @@ export const authOptions: NextAuthOptions = {
   pages: {
     signIn: '/auth/login',
     // newUser: '/auth/register',
-    // signOut: '/auth/signout',
-    // error: '/auth/error',
+    signOut: '/auth/signout',
+    error: '/error',
     // verifyRequest: '/auth/verify-request',
   },
   // secret
@@ -49,9 +49,20 @@ export const authOptions: NextAuthOptions = {
           // check if user already exists
           const existingUserByEmail = await db.user.findUnique({
             where: { email: credentials?.email },
+            include: { accounts: true },
           });
 
           if (!existingUserByEmail) {
+            return null;
+          }
+
+          // Check if the user has a Google account
+          const hasGoogleAccount = existingUserByEmail.accounts.some(
+            (account) => account.provider === 'google'
+          );
+
+          if (!hasGoogleAccount) {
+            // If the user doesn't have a Google account, prevent login
             return null;
           }
 
